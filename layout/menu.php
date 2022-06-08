@@ -18,7 +18,17 @@
             <a class="nav-link" href="/?page=info">Informations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/?page=connexion">Connexion</a>
+            <?php
+            if (isset($_SESSION["user"])) {
+            ?> 
+              <a class="nav-link" href="/?page=deconnexion">Déconnexion</a>
+            <?php
+            } else {
+            ?>
+              <a class="nav-link" href="/?page=connexion">Connexion</a>
+            <?php
+            }
+            ?>
           </li>
         </ul>
       </div>

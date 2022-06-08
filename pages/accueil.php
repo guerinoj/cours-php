@@ -1,0 +1,1 @@
+<h1>Bienvenu sur notre nouveau site tout frais tout beau !</h1>

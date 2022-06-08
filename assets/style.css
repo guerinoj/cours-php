@@ -1,0 +1,9 @@
+body{
+  min-height: 100vh;
+}
+
+.bg-blue-gradient {
+  background: rgb(136, 88, 254);
+  background: linear-gradient(130deg, rgba(136, 88, 254, 1) 0%, rgba(74, 163, 253, 1) 100%);
+}
+

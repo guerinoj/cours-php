@@ -1,8 +1,10 @@
 <?php
 
-if($_POST['login']== "moi" && $_POST['password']== "123"){
+if ($_POST['login'] == "moi" && $_POST['password'] == "123") {
   $user = $_POST['login'];
   include('pages/connexionFormConfirmation.php');
 } else {
-  echo "Erreur de connexion...";
+  echo '<div class="alert alert-warning" role="alert">
+    Erreur de connexion...
+    </div>';
 }

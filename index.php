@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
   <title>Un site en PHP</title>
 </head>
 
-<body class="bg-blue-gradient">
+<body class="bg-blue-gradient text-white">
   <!-- Début du menu-->
   <?php include("layout/menu.php") ?>
   <!-- Fin du menu-->

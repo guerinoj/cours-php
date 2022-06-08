@@ -18,6 +18,10 @@ if (isset($_GET['page'])) {
       include("controllers/contactForm.php");
       break;
 
+      case "connexionForm":
+        include("controllers/connexionForm.php");
+        break;
+
     default:
       include('pages/404.php');
       break;

@@ -9,6 +9,7 @@ function login(string $login, string $pwd)
   if ($login == "moi" && $pwd == "123") {
     //Je stocke en session l'utilisateur connecté
     $_SESSION['user'] = $login;
+    setcookie('user', $login);
     return $login;
   } else {
     return false;

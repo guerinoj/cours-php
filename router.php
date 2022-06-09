@@ -19,17 +19,21 @@ if (isset($_GET['page'])) {
       break;
 
     case "connexionForm":
-        include("controllers/connexionForm.php");
-        break;
+      include("controllers/connexionForm.php");
+      break;
 
     case "deconnexion":
       include("controllers/deconnexion.php");
       break;
-    
+
+    case "utilisateurs":
+      include("controllers/userController.php");
+      break;
+
     default:
       include('pages/404.php');
       break;
   }
 } else {
   include('pages/accueil.php');
-} 
+}

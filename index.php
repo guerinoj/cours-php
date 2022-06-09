@@ -20,7 +20,7 @@ session_start();
   <!-- Début du menu-->
   <?php include("layout/menu.php") ?>
   <!-- Fin du menu-->
-  <main class="container">
+  <main class="container p-3">
     <?php
     include("router.php");
     ?>

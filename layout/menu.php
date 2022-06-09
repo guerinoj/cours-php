@@ -30,6 +30,9 @@
             }
             ?>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/?page=utilisateurs">Utilisateurs</a>
+          </li>
         </ul>
       </div>
     </div>

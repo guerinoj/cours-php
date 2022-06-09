@@ -26,3 +26,25 @@ function getUsers()
 
   return $reponse->fetchAll();
 }
+
+/**
+ * Retourne un utilisateur suivant son login et mdp
+ */
+
+ function getUserByLogin($login, $pwd){
+
+  //Connection à la BDD
+  $bdd = connection();
+  $sql = "SELECT * 
+          FROM users 
+          WHERE name=? 
+          AND password=?";
+
+  //Préparation de la requête
+  $requete = $bdd->prepare($sql);
+
+  //Execution de la requête en passant 2 paramètres
+  $requete->execute([$login,$pwd]);
+
+  return $requete->fetchAll();
+ }

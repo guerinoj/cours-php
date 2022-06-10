@@ -29,6 +29,15 @@ if (isset($_GET['page'])) {
     case "utilisateurs":
       include("controllers/userController.php");
       break;
+    
+    /*case "createUser":
+      include("controllers/createUser.php");
+      break;
+
+    case "deleteUser":
+      include("controllers/deleteUser.php");
+      break;
+      */
 
     default:
       include('pages/404.php');

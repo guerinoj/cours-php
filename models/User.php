@@ -31,7 +31,8 @@ function getUsers()
  * Retourne un utilisateur suivant son login et mdp
  */
 
- function getUserByLogin($login, $pwd){
+function getUserByLogin(string $login, string $pwd)
+{
 
   //Connection à la BDD
   $bdd = connection();
@@ -44,7 +45,51 @@ function getUsers()
   $requete = $bdd->prepare($sql);
 
   //Execution de la requête en passant 2 paramètres
-  $requete->execute([$login,$pwd]);
+  $requete->execute([$login, $pwd]);
 
   return $requete->fetchAll();
- }
+}
+
+function loginByUser(string $login, string $pwd)
+{
+  //Récupération des informations depuis le model User
+  $user = getUserByLogin($login, $pwd);
+  if (isset($user[0])) {
+    $_SESSION['user'] = $user[0]['name'];
+    setcookie('user', $user[0]['name']);
+    return true;
+  } else {
+    return false;
+  }
+}
+/**
+ * Permet de créer un nouvel utilisateur dans la BDD
+ */
+function createUser(string $name, string $pwd)
+{
+  //Connection à la BDD
+  $bdd = connection();
+  $sql = "INSERT INTO users (name, password)
+          VALUES(?,?) ";
+
+  //Préparation de la requête
+  $requete = $bdd->prepare($sql);
+
+  //Execution de la requête en passant 2 paramètres
+  return $requete->execute([$name, $pwd]);
+
+}
+
+function deleteUser(int $id)
+{
+  //Connection à la BDD
+  $bdd = connection();
+  $sql = "DELETE FROM users WHERE id = ? ";
+
+  //Préparation de la requête
+  $requete = $bdd->prepare($sql);
+
+  //Execution de la requête en passant 1 paramètres
+  return $requete->execute([$id]);
+
+}

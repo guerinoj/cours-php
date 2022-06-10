@@ -28,6 +28,30 @@ function getUsers()
 }
 
 /**
+ * Retourne un utilisateur grâce à son id
+ */
+function getUserbyId(int $id)
+{
+  //Connection à la BDD
+  $bdd = connection();
+
+  $sql = "SELECT * 
+          FROM users 
+          WHERE id=?";
+
+  //Préparation de la requête
+  $requete = $bdd->prepare($sql);
+
+  //Execution de la requête en passant l'identifiant
+  $requete->execute([$id]);
+
+  $data = $requete->fetchAll(); 
+
+  //Retourne le premier enregistrement de la requete
+  return $data[0];
+}
+
+/**
  * Retourne un utilisateur suivant son login et mdp
  */
 
@@ -77,7 +101,6 @@ function createUser(string $name, string $pwd)
 
   //Execution de la requête en passant 2 paramètres
   return $requete->execute([$name, $pwd]);
-
 }
 
 function deleteUser(int $id)
@@ -91,5 +114,20 @@ function deleteUser(int $id)
 
   //Execution de la requête en passant 1 paramètres
   return $requete->execute([$id]);
+}
 
+/**
+ * Permet de mettre à jour un utilisateur dans la BDD
+ */
+function updateUser(int $id, string $name, string $pwd)
+{
+  //Connection à la BDD
+  $bdd = connection();
+  $sql = " UPDATE users SET name=?, password=? WHERE id = ? ";
+
+  //Préparation de la requête
+  $requete = $bdd->prepare($sql);
+
+  //Execution de la requête en passant 3 paramètres
+  return $requete->execute([$name, $pwd, $id]);
 }

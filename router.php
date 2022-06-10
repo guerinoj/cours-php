@@ -29,6 +29,10 @@ if (isset($_GET['page'])) {
     case "utilisateurs":
       include("controllers/userController.php");
       break;
+
+    case "articles":
+      include("controllers/postController.php");
+      break;
     
     /*case "createUser":
       include("controllers/createUser.php");
@@ -44,5 +48,5 @@ if (isset($_GET['page'])) {
       break;
   }
 } else {
-  include('pages/accueil.php');
+  include("controllers/postController.php");
 }

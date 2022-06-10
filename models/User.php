@@ -1,17 +1,5 @@
 <?php
-function connection()
-{
-  // Utilisateur de MySQL
-  $user = "root";
-  //Mot de passe de l'utilisateur MySQL
-  $pass = "";
-  //Information sur le serveur MySQL
-  $dsn = "mysql:host=localhost;dbname=cours-digi";
-  $bdd = new PDO($dsn, $user, $pass);
-
-  return $bdd;
-}
-
+require_once("models/utils.php");
 
 /**
  * Retourne la liste des utilisateurs
@@ -80,6 +68,7 @@ function loginByUser(string $login, string $pwd)
   $user = getUserByLogin($login, $pwd);
   if (isset($user[0])) {
     $_SESSION['user'] = $user[0]['name'];
+    $_SESSION['userID'] = $user[0]['id'];
     setcookie('user', $user[0]['name']);
     return true;
   } else {

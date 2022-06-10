@@ -33,6 +33,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/?page=utilisateurs">Utilisateurs</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/?page=articles&action=new">Nouvel article</a>
+          </li>
         </ul>
       </div>
     </div>
